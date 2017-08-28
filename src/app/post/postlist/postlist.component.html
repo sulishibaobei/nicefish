@@ -1,14 +1,41 @@
 <div class="post-list-container">
+    <!--role="form"  辅助，告诉你这是一个form-->
     <form class="form-vertical" role="form">
         <div class="row">
             <div class="col-sm-10">
+                <!--
+                    input-group表示一行,form-group表示一个文本加上一行，文本可以在这一行的左边或上边,input-group和input-group-addon一般会成对出现;
+                    input标签加上form-control类修饰，使输入框更加好看,
+                    placeholder:描述输入字段预期值的提示信息(提示信息),
+                -->
+                <!--
+                    用户输入：
+                    $event 对象取得用户输入
+                    1.keydown - 键按下的过程 2.keypress - 键被按下 3.keyup - 键被松开
+                    change :监控控件内容的改变
+
+                    传入 $event 是靠不住的做法：
+                         类型化事件对象揭露了重要的一点，即反对把整个 DOM 事件传到方法中，因为这样组件会知道太多模板的信息。
+                    只有当它知道更多它本不应了解的 HTML 实现细节时，它才能提取信息。 这就违反了模板（用户看到的）和组件（应用如何处理用户数据）之间的分离关注原则
+                    还有一种用法：使用 Angular 的模板引用变量。 这些变量提供了从模块中直接访问元素的能力。 在标识符前加上井号 (#) 就能声明一个模板引用变量
+                     <input class="form-control" type="text" placeholder="{{'search' | translate}}" [(ngModel)]="searchText" #box (keyup)="searchChanged(box.value)"
+                        (change)="searchChanged($event)" id="searchText" name="searchText">
+                 -->
+                <!--
+                     ngModel:一定要有name属性
+                 -->
+                <!--
+                     i:标签显示斜体文本效果  h5标签
+                 -->
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="{{'search' | translate}}" [(ngModel)]="searchText" (keyup)="searchChanged($event)" (change)="searchChanged($event)" id="searchText" name="searchText">
+                    <input class="form-control" type="text" placeholder="{{'search' | translate}}" [(ngModel)]="searchText" (keyup)="searchChanged($event)"
+                        (change)="searchChanged($event)" id="searchText" name="searchText">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button" (click)="searchChanged($event)"><i class="fa fa-search" aria-hidden="true"></i> {{'search' | translate}}</button>
                     </span>
                 </div>
             </div>
+            <!--待研究  发布文章-->
             <div class="col-sm-2">
                 <div class="input-group">
                     <button class="btn btn-success" type="button" (click)="gotoWrite()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{'post.publish' | translate}}</button>
@@ -22,16 +49,15 @@
                 <h4>
                     <a [routerLink]="['/post/postdetail',post.postId]">{{post.title}}</a>
                 </h4>
-                <p class="{{post.isfamous | boolean }}">
+                <p class="{{post.isfamous | bo
+                olean }}">
                     <i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;{{post.likedTimes}} &nbsp;&nbsp;&nbsp;&nbsp;
                     <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;{{post.commentTimes}} &nbsp;&nbsp;&nbsp;&nbsp;
-                    <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;{{post.readTimes}} &nbsp;&nbsp;&nbsp;&nbsp;{{post.userName }} &nbsp;&nbsp;&nbsp;&nbsp;{{post.postTime}}
+                    <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;{{post.readTimes}} &nbsp;&nbsp;&nbsp;&nbsp;{{post.userName
+                    }} &nbsp;&nbsp;&nbsp;&nbsp;{{post.postTime}}
                 </p>
             </div>
-            <p-paginator rows="{{itemsPerPage}}" 
-                         totalRecords="{{totalRecords}}"
-                         first="{{offset}}"
-                         (onPageChange)="pageChanged($event)">
+            <p-paginator rows="{{itemsPerPage}}" totalRecords="{{totalRecords}}" first="{{offset}}" (onPageChange)="pageChanged($event)">
             </p-paginator>
         </div>
     </div>
