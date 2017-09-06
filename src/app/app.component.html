@@ -1,5 +1,6 @@
 <!-- 顶部导航
-为了给导航栏添加响应式特性，您要折叠的内容必须包裹在带有 class .collapse、.navbar-collapse 的 <div> 中 --> <!--py-4  让文字从第四行显示-->
+为了给导航栏添加响应式特性，您要折叠的内容必须包裹在带有 class .collapse、.navbar-collapse 的 <div> 中 -->
+<!--py-4  让文字从第四行显示-->
 <!--<div class="collapse navbar-collapse  bg-info " id="navbarHeader">
     <div class="container">
         <div class="row">
@@ -26,7 +27,7 @@
         <p-growl [(value)]="msgs"></p-growl>
         <div class="navbar-header">
             <!--可折叠-->
-               <button #button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" (click)="toggle(button)">
+            <button #button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" (click)="toggle(button)">
                 <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -35,14 +36,14 @@
             <!--navbar-brand :让导航文本看起来会显大一号
                 navbar-brand-my: 自定义样式-->
             <a routerLink="posts" class="navbar-brand navbar-brand-my">
-                个人网站
+                少女雨的网站
             </a>
         </div>
         <div class="collapse navbar-collapse navbar-responsive-collapse" aria-expanded="false">
             <!--navbar-left ：向左看齐-->
             <ul class="nav navbar-nav navbar-left">
                 <!--dropdown 允许下拉框-->
-                <li routerLinkActive="active"  >
+                <li routerLinkActive="active">
                     <a routerLink="posts" class="dropdow">{{'app.articles' | translate}} </a>
                 </li>
                 <li class="dropdown">
@@ -55,10 +56,10 @@
                     <a routerLink="jsplumb">集成jsplumb</a>
                 </li>
                 <li class="dropdown">
-                    <a href="http://git.oschina.net/mumu-osc/NiceFish" data-toggle="dropdown" class="dropdown-toggle" target="_blank">NiceFish</a>
+                    <a href="http://www.sulishibaobei.com" data-toggle="dropdown" class="dropdown-toggle" target="_blank">个人博客</a>
                 </li>
                 <li class="dropdown">
-                    <a href="http://git.oschina.net/zt_zhong/CodeBe" data-toggle="dropdown" class="dropdown-toggle" target="_blank">CodeBe</a>
+                    <a href="https://github.com/sulishibaobei/nicefish" data-toggle="dropdown" class="dropdown-toggle" target="_blank">GithubCode</a>
                 </li>
             </ul>
             <!--安全导航操作符，避免值为空的情况-->
@@ -94,7 +95,7 @@
     <div class="container">
         <div class="row">
             <p>
-                Powered by <a href="http://git.oschina.net/mumu-osc/NiceFish" target="_blank">NiceFish</a>
+                Powered by 少女雨
             </p>
         </div>
     </div>
