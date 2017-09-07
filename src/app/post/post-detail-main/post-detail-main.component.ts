@@ -28,11 +28,7 @@ export class PostDetailMainComponent implements OnInit {
         let activatedRouteSnapshot: ActivatedRouteSnapshot = this.activatedRoute.snapshot;
         let routerState: RouterState = this.router.routerState;
         let routerStateSnapshot: RouterStateSnapshot = routerState.snapshot;
-
-        console.log(activatedRouteSnapshot);
-        console.log(routerState);
-        console.log(routerStateSnapshot);
-        //如果是从/login这个URL进行的登录，什么都不做
+        //如果是从/login这个URL进行的登录，什么都不做  现在暂不考虑登录问题  设置一个变量
         if (routerStateSnapshot.url.indexOf("/login") == -1) {
           alert("用户登录成功，可以隐藏登录面板了！");
         }

@@ -54,7 +54,7 @@ export function createTranslateLoader(http: Http) {
     }),
     SharedModule,
     GrowlModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes,{useHash:true})
   ],
   providers: [
     UserLoginService,

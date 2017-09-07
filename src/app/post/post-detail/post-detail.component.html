@@ -1,12 +1,20 @@
-<div class="post-detail-container">
+<div class="post-detail-container" *ngIf="post">
 	<div class="row">
-		<div class="col-sm-12">
-			<h4>{{ post.title }}</h4>
-			<p>{{ post.author }} {{ post.postTime }} 点击：{{ post.readTimes }} 评论：{{ post.commentTimes }}</p>
+		<div class="col-sm-2">
+			<img class="img-responsive" src={{post.icon}}/>
+			<div class="col-sm-12" [innerHTML]="post.text">
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-7">
+					<h4>&nbsp;&nbsp;&nbsp;&nbsp;{{ post.songs }}</h4>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;{{ post.description }} </p>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-12" [innerHTML]="post.text">
-		</div>
+
 	</div>
 </div>

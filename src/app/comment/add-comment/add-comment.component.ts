@@ -11,13 +11,11 @@ import { Comment } from '../model/comment-model';
 })
 export class AddCommentComponent implements OnInit {
   public comments: Array<Comment>;
+  content: Comment;
 
   constructor(
     public commentService: CommentService,
-    public activeRoute: ActivatedRoute)
-  { 
-
-  }
+    public activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.activeRoute.params.subscribe(
@@ -25,13 +23,23 @@ export class AddCommentComponent implements OnInit {
     );
   }
 
-  public getCommentList(postId: number){
+  public getCommentList(postId: number) {
     this.commentService.getCommentList(postId)
       .subscribe(
-        data => {
-          this.comments = data["items"]
-        },
-        error => console.error(error)
+      data => {
+        this.comments = data['items'];
+      },
+      error => console.error(error)
       );
+  }
+
+  public addComment(content: string) {
+    this.commentService.addCommentList(content).then(
+      data => {
+        this.content = data ;
+        console.log(this.content)
+
+      }
+    )
   }
 }

@@ -1,11 +1,15 @@
 <div class="post-detail-main-container" [@flyIn]="'active'">
     <div class="row">
         <div class="col-sm-9">
+            <!--显示页面详情-->
             <app-post-detail></app-post-detail>
-            <app-user-login></app-user-login>
+            <!--应该做一个验证是否登录的-->
+            <!--<app-user-login></app-user-login>-->
+            <!--下方评论-->
             <app-add-comment></app-add-comment>
         </div>
         <div class="col-sm-3">
+            <!--右侧栏作者信息-->
             <app-user-info panelTitle="作者信息" (follow)="doFollow()"></app-user-info>
         </div>
     </div>
