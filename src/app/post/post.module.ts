@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { SharedModule} from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 
-import {PaginatorModule} from 'primeng/components/paginator/paginator';
+import { PaginatorModule } from 'primeng/components/paginator/paginator';
 
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostlistComponent } from './postlist/postlist.component';
@@ -12,15 +12,16 @@ import { PostDetailMainComponent } from './post-detail-main/post-detail-main.com
 import { AddCommentComponent } from '../comment/add-comment/add-comment.component';
 import { CommentService } from '../comment/services/comment.service';
 import { BooleanPipe } from '../utils/boolean-pipe';
-
-import {postRoutes} from './post.routes';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from '../comment/in-memory-data.service';
+import { postRoutes } from './post.routes';
 
 @NgModule({
     imports: [
         SharedModule,
         RouterModule,
         PaginatorModule,
-        RouterModule.forChild(postRoutes)
+        RouterModule.forChild(postRoutes),
     ],
     exports: [BooleanPipe],
     declarations: [

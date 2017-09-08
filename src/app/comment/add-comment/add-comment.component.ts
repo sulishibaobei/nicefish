@@ -27,7 +27,7 @@ export class AddCommentComponent implements OnInit {
     this.commentService.getCommentList(postId)
       .subscribe(
       data => {
-        this.comments = data['items'];
+        this.comments = data;
       },
       error => console.error(error)
       );
@@ -36,10 +36,11 @@ export class AddCommentComponent implements OnInit {
   public addComment(content: string) {
     this.commentService.addCommentList(content).then(
       data => {
-        this.content = data ;
+        this.content = data;
         console.log(this.content)
 
       }
     )
   }
+
 }
