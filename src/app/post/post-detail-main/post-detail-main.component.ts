@@ -42,6 +42,6 @@ export class PostDetailMainComponent implements OnInit {
     this.subscription.unsubscribe();
   }
   doFollow() {
-    alert("父组件监听子组件的事件...");
+    alert("谢谢你关注我...");
   }
 }

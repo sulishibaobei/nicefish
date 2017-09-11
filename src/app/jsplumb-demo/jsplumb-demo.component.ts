@@ -11,6 +11,7 @@ export class JsplumbDemoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    //jsPlumb是一个强大的JavaScript连线库，它可以将html中的元素用箭头、曲线、直线等连接起来，适用于开发Web上的图表、建模工具等
     var jsPlumb = jsp.jsPlumb;
     var instance = jsPlumb.getInstance({
       // default drag options

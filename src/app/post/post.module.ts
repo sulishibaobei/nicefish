@@ -13,7 +13,6 @@ import { AddCommentComponent } from '../comment/add-comment/add-comment.componen
 import { CommentService } from '../comment/services/comment.service';
 import { BooleanPipe } from '../utils/boolean-pipe';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from '../comment/in-memory-data.service';
 import { postRoutes } from './post.routes';
 
 @NgModule({

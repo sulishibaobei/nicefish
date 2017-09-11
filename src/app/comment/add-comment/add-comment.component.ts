@@ -10,8 +10,8 @@ import { Comment } from '../model/comment-model';
   styleUrls: ['./add-comment.component.scss']
 })
 export class AddCommentComponent implements OnInit {
-  public comments: Array<Comment>;
-  content: Comment;
+  public comments: Comment[];
+
 
   constructor(
     public commentService: CommentService,
@@ -19,28 +19,30 @@ export class AddCommentComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.params.subscribe(
-      params => this.getCommentList(params["postId"])
+      params => this.getCommentList(params['postId'])
     );
+
   }
 
-  public getCommentList(postId: number) {
+  getCommentList(postId: number) {
     this.commentService.getCommentList(postId)
       .subscribe(
       data => {
         this.comments = data;
       },
       error => console.error(error)
-      );
+      )
   }
-
-  public addComment(content: string) {
-    this.commentService.addCommentList(content).then(
-      data => {
-        this.content = data;
-        console.log(this.content)
-
+  addhero: Comment;
+  addComment(content: string) {
+    this.commentService.addCommentList(content).subscribe(
+      hero => {
+        this.addhero = hero;
+        this.comments.push(this.addhero[0]);
       }
     )
+
   }
+
 
 }
