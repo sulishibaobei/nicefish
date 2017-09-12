@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';  //每个在浏览器
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // 动画  Angular 4 里面的导入用法
 import { RouterModule } from '@angular/router';  //使用路由模块必须引入的
 import { HttpModule, JsonpModule, Http } from '@angular/http';  //使用http请求必须导入，JsonpModule是只要使用jsonp跨域才导入
+import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';  //	响应式表单 必须导入，如果是模板驱动表单则导入FormModule
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate'; // 多语言切换
 import { GrowlModule } from 'primeng/components/growl/growl';
@@ -23,6 +24,8 @@ import { AmapComponent } from './map/gaode-map/amap/amap.component';
 import { JsplumbDemoComponent } from './jsplumb-demo/jsplumb-demo.component';
 import { appRoutes } from './app.routes';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { NewsComponent } from './news/news.component';
+
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -39,7 +42,8 @@ export function createTranslateLoader(http: Http) {
     ChartComponent,
     AmapComponent,
     GaodeMapComponent,
-    JsplumbDemoComponent
+    JsplumbDemoComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +60,7 @@ export function createTranslateLoader(http: Http) {
     SharedModule,
     GrowlModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
+    HttpClientModule,
 
   ],
   providers: [

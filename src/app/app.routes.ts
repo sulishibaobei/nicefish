@@ -7,7 +7,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { ChartComponent } from './chart/chart.component';
 import { GaodeMapComponent } from './map/gaode-map/gaode-map.component';
 import { JsplumbDemoComponent } from './jsplumb-demo/jsplumb-demo.component';
-
+import { NewsComponent } from './news/news.component';
 export const appRoutes=[
 	{
 		path:'',
@@ -21,6 +21,10 @@ export const appRoutes=[
 	{
 		path:"map",  //高德地图
 		component:GaodeMapComponent
+	},
+	{
+		path:"news",  //高德地图
+		component:NewsComponent
 	},
 	{
 		path:'home',  
