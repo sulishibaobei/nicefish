@@ -11,14 +11,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Tanmay</td>
-            <td>Bangalore</td>
-            <td>560001</td>
+          <tr *ngFor="let a of new">
+            <td>{{a.title}}</td>
+            <td>
+              {{a.date}}
+            </td>
+            <td>
+              <a href={{a.url}} target="_blank">{{a.url}}</a>
+            </td>
           </tr>
         </tbody>
       </table>
-
     </div>
   </div>
 </div>

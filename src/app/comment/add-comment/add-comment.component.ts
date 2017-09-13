@@ -21,7 +21,6 @@ export class AddCommentComponent implements OnInit {
     this.activeRoute.params.subscribe(
       params => this.getCommentList(params['postId'])
     );
-
   }
 
   getCommentList(postId: number) {

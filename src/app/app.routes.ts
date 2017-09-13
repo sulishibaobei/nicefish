@@ -8,62 +8,62 @@ import { ChartComponent } from './chart/chart.component';
 import { GaodeMapComponent } from './map/gaode-map/gaode-map.component';
 import { JsplumbDemoComponent } from './jsplumb-demo/jsplumb-demo.component';
 import { NewsComponent } from './news/news.component';
-export const appRoutes=[
+export const appRoutes = [
 	{
-		path:'',
-		redirectTo:'posts',
-		pathMatch:'full'
+		path: '',
+		redirectTo: 'posts',
+		pathMatch: 'full'
 	},
 	{
-		path:"echart",  //图像集成
-		component:ChartComponent
+		path: "echart",  //图像集成
+		component: ChartComponent
 	},
 	{
-		path:"map",  //高德地图
-		component:GaodeMapComponent
+		path: "map",  //高德地图
+		component: GaodeMapComponent
 	},
 	{
-		path:"news",  //高德地图
-		component:NewsComponent
+		path: "news",  //新闻
+		component: NewsComponent
 	},
 	{
-		path:'home',  
-		loadChildren:'./home/home.module#HomeModule'
+		path: 'home',
+		loadChildren: './home/home.module#HomeModule'
 	},
 	{
-		path:'posts',
-		loadChildren:'./home/home.module#HomeModule'
+		path: 'posts',
+		loadChildren: './home/home.module#HomeModule'
 	},
 	{
-		path:'post',
-		loadChildren:'./post/post.module#PostModule'
+		path: 'post',
+		loadChildren: './post/post.module#PostModule'
 	},
 	{
-		path:'login',
-		component:UserLoginComponent
+		path: 'login',
+		component: UserLoginComponent
 	},
 	{
-		path:'forgetpwd',
-		component:ForgetPwdComponent
+		path: 'forgetpwd',
+		component: ForgetPwdComponent
 	},
 	{
-		path:'register',
-		component:UserRegisterComponent
+		path: 'register',
+		component: UserRegisterComponent
 	},
 	{
-		path:'user',
-		loadChildren:'./user/user.module#UserModule'
-	},
-	{ 
-		path: 'manage', 
-		loadChildren:'./manage/manage.module#ManageModule'
+		path: 'user',
+		loadChildren: './user/user.module#UserModule'
 	},
 	{
-		path:'jsplumb',  //集成jsplumb
-		component:JsplumbDemoComponent
+		path: 'manage',
+		loadChildren: './manage/manage.module#ManageModule'
 	},
 	{
-		path:'**',//fallback router must in the last
-		loadChildren:'./home/home.module#HomeModule'
+		path: 'jsplumb',  //集成jsplumb
+		component: JsplumbDemoComponent
+	},
+	{
+		path: '**',//fallback router must in the last
+		loadChildren: './home/home.module#HomeModule'
 	}
 ];

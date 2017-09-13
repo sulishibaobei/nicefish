@@ -294,7 +294,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_20__map_gaode_map_amap_amap_component__["a" /* AmapComponent */],
             __WEBPACK_IMPORTED_MODULE_19__map_gaode_map_gaode_map_component__["a" /* GaodeMapComponent */],
             __WEBPACK_IMPORTED_MODULE_21__jsplumb_demo_jsplumb_demo_component__["a" /* JsplumbDemoComponent */],
-            __WEBPACK_IMPORTED_MODULE_23__news_news_component__["a" /* NewsComponent */]
+            __WEBPACK_IMPORTED_MODULE_23__news_news_component__["a" /* NewsComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
@@ -1015,7 +1015,7 @@ GaodeMapComponent = __decorate([
 /***/ "../../../../../src/app/news/news.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-sm-12\">\n      <table class=\"table table-hover\">\n        <caption>新闻列表</caption>\n        <thead>\n          <tr>\n            <th>标题</th>\n            <th>作者</th>\n            <th>详情</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <td>Tanmay</td>\n            <td>Bangalore</td>\n            <td>560001</td>\n          </tr>\n        </tbody>\n      </table>\n\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-sm-12\">\n      <table class=\"table table-hover\">\n        <caption>新闻列表</caption>\n        <thead>\n          <tr>\n            <th>标题</th>\n            <th>作者</th>\n            <th>详情</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let a of new\">\n            <td>{{a.title}}</td>\n            <td>\n              {{a.date}}\n            </td>\n            <td>\n              <a href={{a.url}} target=\"_blank\">{{a.url}}</a>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1064,8 +1064,7 @@ var NewsComponent = (function () {
         var _this = this;
         this.http.get('/toutiao/index?type=top&key=3c6870f135609597aa7bc03e21f8dc20')
             .subscribe(function (data) {
-            _this.new = data['result'];
-            console.log(_this.new);
+            _this.new = data.json().result.data;
         });
     };
     return NewsComponent;

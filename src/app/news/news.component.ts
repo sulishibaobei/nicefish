@@ -14,8 +14,7 @@ export class NewsComponent implements OnInit {
   ngOnInit() {
     this.http.get('/toutiao/index?type=top&key=3c6870f135609597aa7bc03e21f8dc20')
       .subscribe(data => {
-        this.new = data['result'];
-        console.log(this.new)
+        this.new = data.json().result.data;
       })
   }
 }
