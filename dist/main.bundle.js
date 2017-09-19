@@ -930,6 +930,11 @@ var AmapComponent = (function () {
             });
             map.addControl(geolocation);
         });
+        map.plugin(['AMap.ToolBar', 'AMap.Scale', 'AMap.OverView'], function () {
+            map.addControl(new window['AMap'].ToolBar());
+            map.addControl(new window['AMap'].Scale());
+            map.addControl(new window['AMap'].OverView({ isOpen: true }));
+        });
     };
     return AmapComponent;
 }());
