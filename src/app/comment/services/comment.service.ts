@@ -10,16 +10,13 @@ import { Comment } from '../model/comment-model';
 
 @Injectable()
 export class CommentService {
-
-    constructor(private http: Http) { }
     private commentListURL = '/file/comment-mock.json';
-
+    private headers = new Headers({ 'Content-Type': 'application/json' });
+    constructor(private http: Http) { }
     getCommentList(postId: number): Observable<Comment[]> {
         return this.http.get(this.commentListURL)
             .map(this.extractData).catch(this.handleError);
     }
-
-    private headers = new Headers({ 'Content-Type': 'application/json' });
     public addCommentList(content: string): Observable<Comment> {
         let params = new URLSearchParams();
         params.set('postId', '1');
@@ -27,7 +24,7 @@ export class CommentService {
         params.set('username', '少女雨');
         params.set('content', content);
         return this.http.post(this.commentListURL, { search: params }, { headers: this.headers })
-            .map(this.extractData).catch(this.handleError);
+            .map(res => res.json().items as Comment).catch(this.handleError);
     }
     /**
  *
